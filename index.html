@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Vue YASB - Test</title>
+    <style>
+      [v-cloak] {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <h1>Sample Blog</h1>
+      <ul>
+        <li><router-link to="/foo">Go to Foo</router-link></li>
+        <li><router-link to="/bar">Go to Bar</router-link></li>
+      </ul>
+
+      <div>
+        <router-view></router-view>
+      </div>
+    </div>
+
+    <script src="./main.js" type="module"></script>
+  </body>
+</html>
