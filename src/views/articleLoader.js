@@ -1,7 +1,7 @@
 import { loadMarkdown } from "../helpers/index.js";
 
 export default {
-  name: "dynamicMd",
+  name: "articleLoader",
   watch: {
     $route: {
       immediate: true,
