@@ -9,21 +9,42 @@
       [v-cloak] {
         display: none;
       }
+      .title {
+        text-align: center;
+      }
+      ul {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+      }
+      li {
+        display: inline;
+      }
+
+      .article {
+        display: block;
+        border-radius: 10px;
+        padding: 10px;
+        background: #fafafa;
+        min-height: 80vh;
+      }
     </style>
   </head>
   <body>
     <div id="app" v-cloak>
-      <h1>Sample Blog</h1>
+      <h1 class="title">Sample Blog</h1>
+
       <ul>
-        <li><router-link to="/foo">Go to Foo</router-link></li>
-        <li><router-link to="/bar">Go to Bar</router-link></li>
+        <li><router-link to="/sample">Article 1</router-link></li>
+        <li><router-link to="/sample2">Article 2</router-link></li>
       </ul>
 
-      <div>
+      <div class="article">
         <router-view></router-view>
       </div>
     </div>
 
-    <script src="./main.js" type="module"></script>
+    <script src="./src/main.js" type="module"></script>
   </body>
 </html>
