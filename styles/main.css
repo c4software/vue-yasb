@@ -2,7 +2,11 @@
   display: none;
 }
 .title {
+  display: block;
   text-align: center;
+  color: black;
+  font-size: 2rem;
+  text-decoration: none;
 }
 ul {
   display: block;
