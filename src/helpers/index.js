@@ -4,8 +4,9 @@ const buildUri = file => {
   return "articles/" + file + ".md";
 };
 
-export const loadMarkdown = (file) => {
+export const loadMarkdown = file => {
   return fetch(buildUri(file))
+    .then(handleErrors)
     .then(content => {
       return content.text();
     })
@@ -15,4 +16,12 @@ export const loadMarkdown = (file) => {
     .catch(err => {
       return "";
     });
+};
+
+const handleErrors = response => {
+  if (!response.ok) {
+    throw response;
+  } else {
+    return response;
+  }
 };
