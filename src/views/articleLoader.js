@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     load() {
-      loadMarkdown(this.$route.params.path).then(article => (this.data = article));
+      loadMarkdown(this.$route.params.filename).then(article => (this.data = article));
     }
   },
   template: "<div v-html='data'></div>"
