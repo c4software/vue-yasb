@@ -5,6 +5,7 @@ const buildUri = file => {
   return articlesFolder + file + ".md";
 };
 
+// Depend on external library… (Not ESM ready)
 const highlightCode = code => {
   if (hljs) {
     return hljs.highlightAuto(code).value;
