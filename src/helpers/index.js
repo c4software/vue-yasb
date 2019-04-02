@@ -5,6 +5,14 @@ const buildUri = file => {
   return articlesFolder + file + ".md";
 };
 
+const highlightCode = code => {
+  if (hljs) {
+    return hljs.highlightAuto(code).value;
+  } else {
+    return code;
+  }
+};
+
 export const loadMarkdown = file => {
   return fetch(buildUri(file))
     .then(handleErrors)
@@ -12,9 +20,10 @@ export const loadMarkdown = file => {
       return content.text();
     })
     .then(content => {
-      return marked(content);
+      return marked(content, { highlight: highlightCode, langPrefix: "hljs language-" });
     })
     .catch(err => {
+      console.log(err);
       return "";
     });
 };
