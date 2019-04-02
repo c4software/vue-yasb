@@ -1,5 +1,5 @@
-import "https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.min.js";
-import router from "/src/router.js";
+import Vue from "https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.esm.browser.js";
+import router from "/src/router/index.js";
 import { debug } from "/src/config.js";
 
 // Enable VueJS Debug
