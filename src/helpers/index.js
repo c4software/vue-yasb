@@ -1,5 +1,5 @@
 import "https://cdn.jsdelivr.net/npm/marked/marked.min.js";
-import { articlesFolder } from "/src/config.js";
+import { articlesFolder } from "../config.js";
 
 const buildUri = file => {
   return articlesFolder + file + ".md";
