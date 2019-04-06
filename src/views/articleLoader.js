@@ -1,23 +1,23 @@
-import { loadMarkdown } from "../helpers/index.js";
+import { loadArticle } from "../helpers/index.js";
 
 export default {
   name: "articleLoader",
-  watch: {
-    $route: {
-      immediate: true,
-      handler() {
-        this.load();
-      }
-    }
-  },
   data() {
     return {
       data: ""
     };
   },
-  methods: {
-    load() {
-      loadMarkdown(this.$route.params.filename).then(article => (this.data = article));
+  watch: {
+    $route: {
+      immediate: true,
+      handler() {
+        loadArticle(this.requestArticle).then(article => (this.data = article));
+      }
+    }
+  },
+  computed: {
+    requestArticle() {
+      return this.$route.params.filename;
     }
   },
   template: "<div v-html='data'></div>"

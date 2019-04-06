@@ -14,19 +14,30 @@ const highlightCode = code => {
   }
 };
 
-export const loadMarkdown = file => {
-  return fetch(buildUri(file))
+export const loadArticle = filename => {
+  // FIX ME CLEANPATH
+  return loadMarkdown(buildUri(filename));
+};
+
+export const loadStatic = filename => {
+  // FIXME CLEAN PATH
+  return loadMarkdown(filename);
+};
+
+export const loadMarkdown = uri => {
+  return fetch(uri)
     .then(handleErrors)
     .then(content => {
       return content.text();
     })
-    .then(content => {
-      return marked(content, { highlight: highlightCode, langPrefix: "hljs language-" });
-    })
+    .then(parseMarkdown)
     .catch(err => {
-      console.log(err);
       return "";
     });
+};
+
+const parseMarkdown = content => {
+  return marked(content, { highlight: highlightCode, langPrefix: "hljs language-" });
 };
 
 const handleErrors = response => {

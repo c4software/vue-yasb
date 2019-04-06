@@ -8,13 +8,13 @@
   font-size: 2rem;
   text-decoration: none;
 }
-ul {
+.menu {
   display: block;
   width: 100%;
   text-align: center;
   padding: 0;
 }
-li {
+.menu > li {
   display: inline;
 }
 

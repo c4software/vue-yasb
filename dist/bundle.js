@@ -2,13 +2,9 @@ import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.esm.browser.js'
 import VueRouter from 'https://unpkg.com/vue-router@3.0.2/dist/vue-router.esm.js';
 import 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
 
-var HomeBuilder = {
-  name: "homeBuilder",
-  template: "<div>Home</div>"
-};
-
 const debug = true;
 const articlesFolder = "/articles/";
+const home = "/README.md";
 
 const buildUri = file => {
   return articlesFolder + file + ".md";
@@ -23,19 +19,30 @@ const highlightCode = code => {
   }
 };
 
-const loadMarkdown = file => {
-  return fetch(buildUri(file))
+const loadArticle = filename => {
+  // FIX ME CLEANPATH
+  return loadMarkdown(buildUri(filename));
+};
+
+const loadStatic = filename => {
+  // FIXME CLEAN PATH
+  return loadMarkdown(filename);
+};
+
+const loadMarkdown = uri => {
+  return fetch(uri)
     .then(handleErrors)
     .then(content => {
       return content.text();
     })
-    .then(content => {
-      return marked(content, { highlight: highlightCode, langPrefix: "hljs language-" });
-    })
+    .then(parseMarkdown)
     .catch(err => {
-      console.log(err);
       return "";
     });
+};
+
+const parseMarkdown = content => {
+  return marked(content, { highlight: highlightCode, langPrefix: "hljs language-" });
 };
 
 const handleErrors = response => {
@@ -48,12 +55,32 @@ const handleErrors = response => {
 
 var ArticleLoader = {
   name: "articleLoader",
+  data() {
+    return {
+      data: ""
+    };
+  },
   watch: {
     $route: {
       immediate: true,
       handler() {
-        this.load();
+        loadArticle(this.requestArticle).then(article => (this.data = article));
       }
+    }
+  },
+  computed: {
+    requestArticle() {
+      return this.$route.params.filename;
+    }
+  },
+  template: "<div v-html='data'></div>"
+};
+
+var staticLoader = {
+  name: "staticLoader",
+  computed: {
+    target() {
+      return this.$route.meta["file"] || "";
     }
   },
   data() {
@@ -61,10 +88,8 @@ var ArticleLoader = {
       data: ""
     };
   },
-  methods: {
-    load() {
-      loadMarkdown(this.$route.params.filename).then(article => (this.data = article));
-    }
+  mounted() {
+    loadStatic(this.target).then(data => (this.data = data));
   },
   template: "<div v-html='data'></div>"
 };
@@ -74,7 +99,7 @@ window.process = { env: { NODE: "production" } };
 
 Vue.use(VueRouter);
 
-const routes = [{ path: "/", component: HomeBuilder }, { path: "/:filename", component: ArticleLoader }];
+const routes = [{ path: "/", component: staticLoader, meta: { file: home } }, { path: "/:filename", component: ArticleLoader }];
 
 const router = new VueRouter({
   routes: routes,
