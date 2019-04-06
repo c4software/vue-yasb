@@ -3,5 +3,6 @@ export default {
   output: {
     file: "dist/bundle.js",
     format: "esm"
-  }
+  },
+  plugins: [require("import-http/rollup")()]
 };
