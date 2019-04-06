@@ -3,8 +3,8 @@ import VueRouter from 'https://unpkg.com/vue-router@3.0.2/dist/vue-router.esm.js
 import 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
 
 const debug = true;
-const articlesFolder = "/articles/";
-const home = "/README.md";
+const articlesFolder = "./articles/";
+const home = "./README.md";
 
 const buildUri = file => {
   return articlesFolder + file + ".md";

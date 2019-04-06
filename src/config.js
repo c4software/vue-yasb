@@ -1,6 +1,6 @@
 export const debug = true;
-export const articlesFolder = "/articles/";
-export const home = "/README.md";
+export const articlesFolder = "./articles/";
+export const home = "./README.md";
 
 // For this options,
 // you need an compatible hosting.
