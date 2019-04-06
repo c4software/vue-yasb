@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "rollup -c",
-    "watch": ""
+    "watch": "rollup -c -w"
   },
   "devDependencies": {
     "import-http": "^0.3.0"
