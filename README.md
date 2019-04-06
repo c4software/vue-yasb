@@ -1,4 +1,4 @@
-# vue-yasb
+# Vue-Yasb
 
 Experiment Markdown and VueJS only in Browser ESM.
 
@@ -8,7 +8,7 @@ Experiment Markdown and VueJS only in Browser ESM.
 
 Bundling is optionnal, if you wan't to create a bundle of all javascript files you will need
 
-### Optionnal dependencies
+### Dependencies
 
 - [RollupJS](https://github.com/rollup/rollup)
-- [ImportHTTP](https://github.com/egoist/import-http)
+- [ImportHTTP](https://github.com/egoist/import-http) (Optionnal)
