@@ -5,8 +5,8 @@ const buildUri = file => {
   return articlesFolder + file + ".md";
 };
 
-// Depend on external library… (Not ESM ready)
 const highlightCode = code => {
+  // Depend on external library… (Not ESM ready)
   if (hljs) {
     return hljs.highlightAuto(code).value;
   } else {
