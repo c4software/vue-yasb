@@ -1,6 +1,7 @@
 import Vue from 'https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.esm.browser.js';
 import VueRouter from 'https://unpkg.com/vue-router@3.0.2/dist/vue-router.esm.js';
-import 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+import 'https://cdn.jsdelivr.net/npm/marked@0.6.2';
+import 'https://cdn.jsdelivr.net/npm/prismjs@1.16.0';
 
 const debug = true;
 const articlesFolder = "./articles/";
@@ -10,11 +11,12 @@ const buildUri = file => {
   return articlesFolder + file + ".md";
 };
 
-const highlightCode = code => {
-  // Depend on external library… (Not ESM ready)
-  if (hljs) {
-    return hljs.highlightAuto(code).value;
-  } else {
+const highlightCode = (code, lang) => {
+  // Injecting « pre », make the highlighting works with PrismJS
+  // Ugly… but working
+  try {
+    return `<pre class='language-${lang}'>${Prism.highlight(code, Prism.languages[lang || "markup"])}</pre>`;
+  } catch (err) {
     return code;
   }
 };
@@ -42,7 +44,7 @@ const loadMarkdown = uri => {
 };
 
 const parseMarkdown = content => {
-  return marked(content, { highlight: highlightCode, langPrefix: "hljs language-" });
+  return marked(content, { highlight: highlightCode });
 };
 
 const handleErrors = response => {

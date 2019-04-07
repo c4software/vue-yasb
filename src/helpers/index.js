@@ -1,15 +1,17 @@
-import "https://cdn.jsdelivr.net/npm/marked/marked.min.js";
+import "https://cdn.jsdelivr.net/npm/marked@0.6.2";
+import "https://cdn.jsdelivr.net/npm/prismjs@1.16.0";
 import { articlesFolder } from "../config.js";
 
 const buildUri = file => {
   return articlesFolder + file + ".md";
 };
 
-const highlightCode = code => {
-  // Depend on external library… (Not ESM ready)
-  if (hljs) {
-    return hljs.highlightAuto(code).value;
-  } else {
+const highlightCode = (code, lang) => {
+  // Injecting « pre », make the highlighting works with PrismJS
+  // Ugly… but working
+  try {
+    return `<pre class='language-${lang}'>${Prism.highlight(code, Prism.languages[lang || "markup"])}</pre>`;
+  } catch (err) {
     return code;
   }
 };
@@ -37,7 +39,7 @@ export const loadMarkdown = uri => {
 };
 
 const parseMarkdown = content => {
-  return marked(content, { highlight: highlightCode, langPrefix: "hljs language-" });
+  return marked(content, { highlight: highlightCode });
 };
 
 const handleErrors = response => {
