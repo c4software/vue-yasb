@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "prepare": "pika-web"
+    "prepare": "pika-web --clear",
+    "serve": "serve ./"
   },
   "@pika/web": {
     "webDependencies": [
@@ -15,6 +16,7 @@
     "vue-router": "^3.0.3"
   },
   "devDependencies": {
-    "@pika/web": "^0.3.2"
+    "@pika/web": "^0.3.2",
+    "serve": "^11.0.0"
   }
 }
