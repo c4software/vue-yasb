@@ -3,7 +3,7 @@ import VueRouter from "https://unpkg.com/vue-router@3.0.2/dist/vue-router.esm.js
 import ArticleLoader from "../views/articleLoader.js";
 import { html5HistoryMode, home } from "../config.js";
 import staticLoader from "../views/staticLoader.js";
-import rollupConfig from "../../rollup.config.js";
+
 // Hacky way to make esm work with browser-esm
 window.process = { env: { NODE: "production" } };
 
