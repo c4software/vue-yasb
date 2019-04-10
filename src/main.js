@@ -8,6 +8,11 @@ Vue.config.devtools = debug;
 new Vue({
   router,
   el: "#app",
+  data() {
+    return {
+      theme: "light"
+    };
+  },
   mounted() {
     console.log("App started");
   }
