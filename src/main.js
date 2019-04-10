@@ -7,8 +7,5 @@ Vue.config.devtools = debug;
 
 new Vue({
   router,
-  el: "#app",
-  mounted() {
-    console.log("App started");
-  }
+  el: "#app"
 });
