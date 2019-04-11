@@ -1,5 +1,5 @@
-import "https://cdn.jsdelivr.net/npm/marked@0.6.2";
-import "https://cdn.jsdelivr.net/npm/prismjs@1.16.0";
+import marked from "../../web_modules/marked/marked.min.js";
+import Prism from "../../web_modules/prismjs/prism.js";
 import { articlesFolder } from "../config.js";
 
 const buildUri = file => {

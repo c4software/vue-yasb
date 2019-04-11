@@ -1,5 +1,5 @@
-import Vue from "https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.esm.browser.js";
-import VueRouter from "https://unpkg.com/vue-router@3.0.2/dist/vue-router.esm.js";
+import Vue from "../../web_modules/vue/dist/vue.esm.browser.js";
+import VueRouter from "../../web_modules/vue-router.js";
 import ArticleLoader from "../views/articleLoader.js";
 import { html5HistoryMode, home } from "../config.js";
 import staticLoader from "../views/staticLoader.js";

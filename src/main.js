@@ -1,4 +1,4 @@
-import Vue from "https://cdn.jsdelivr.net/npm/vue@2.6.9/dist/vue.esm.browser.js";
+import Vue from "../web_modules/vue/dist/vue.esm.browser.js";
 import router from "./router/index.js";
 import { debug } from "./config.js";
 
