@@ -1,5 +1,5 @@
 # Vue-Yasb
 
-Experiment Markdown and VueJS only in Browser ESM.
+Experimental Markdown and VueJS only with Browser ESM.
 
-[Live test](https://c4software.github.io/vue-yasb/index.html)
+[Try the Sample](https://c4software.github.io/vue-yasb/index.html)
