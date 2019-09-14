@@ -11993,4 +11993,3 @@ function getOuterHTML (el) {
 Vue.compile = compileToFunctions;
 
 export default Vue;
-//# sourceMappingURL=vue.esm.browser.js.map
