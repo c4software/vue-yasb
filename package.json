@@ -1,24 +1,26 @@
 {
   "scripts": {
-    "prepare": "pika-web --clear",
+    "prepare": "snowpack --clear",
     "serve": "serve ./"
   },
-  "@pika/web": {
+  "snowpack": {
     "webDependencies": [
-      "vue/dist/vue.esm.browser.js",
+      "vue/dist/vue.esm.browser.min.js",
       "vue-router",
-      "marked/marked.min.js",
+      "marked/lib/marked.esm.js",
       "prismjs/prism.js"
     ]
   },
   "dependencies": {
-    "marked": "^0.7.0",
-    "prismjs": "^1.17.1",
-    "vue": "^2.6.10",
+    "marked": "^0.8.0",
+    "prismjs": "^1.18.0",
+    "vue": "^2.6.11",
     "vue-router": "^3.1.3"
   },
   "devDependencies": {
-    "@pika/web": "^0.6.1",
-    "serve": "^11.1.0"
+    "snowpack": "^1.0.3",
+    "serve": "^11.3.0",
+    "@babel/core": "^7.8.0",
+    "@babel/preset-env": "^7.8.0"
   }
 }

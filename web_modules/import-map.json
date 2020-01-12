@@ -1,8 +1,8 @@
 {
   "imports": {
-    "vue/dist/vue.esm.browser": "./vue/dist/vue.esm.browser.js",
+    "vue/dist/vue.esm.browser.min": "./vue/dist/vue.esm.browser.min.js",
     "vue-router": "./vue-router.js",
-    "marked/marked.min": "./marked/marked.min.js",
+    "marked/lib/marked.esm": "./marked/lib/marked.esm.js",
     "prismjs/prism": "./prismjs/prism.js"
   }
 }
