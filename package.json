@@ -1,26 +1,29 @@
 {
   "scripts": {
-    "prepare": "snowpack --clear",
+    "prepare": "snowpack --clean --optimize",
     "serve": "serve ./"
   },
   "snowpack": {
     "webDependencies": [
       "vue/dist/vue.esm.browser.min.js",
       "vue-router",
-      "marked/lib/marked.esm.js",
+      "marked/marked.min.js",
       "prismjs/prism.js"
+    ],
+    "dedupe": [
+      "vue"
     ]
   },
   "dependencies": {
     "marked": "^0.8.0",
-    "prismjs": "^1.18.0",
+    "prismjs": "^1.19.0",
     "vue": "^2.6.11",
-    "vue-router": "^3.1.3"
+    "vue-router": "^3.1.5"
   },
   "devDependencies": {
-    "snowpack": "^1.0.3",
+    "snowpack": "^1.0.5",
     "serve": "^11.3.0",
-    "@babel/core": "^7.8.0",
-    "@babel/preset-env": "^7.8.0"
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3"
   }
 }

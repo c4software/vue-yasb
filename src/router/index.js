@@ -1,4 +1,4 @@
-import Vue from "../../web_modules/vue/dist/vue.esm.browser.js";
+import Vue from "../../web_modules/vue/dist/vue.esm.browser.min.js";
 import VueRouter from "../../web_modules/vue-router.js";
 import ArticleLoader from "../views/articleLoader.js";
 import { html5HistoryMode, home } from "../config.js";

@@ -1,4 +1,4 @@
-import Vue from "../web_modules/vue/dist/vue.esm.browser.js";
+import Vue from "../web_modules/vue/dist/vue.esm.browser.min.js";
 import router from "./router/index.js";
 import { debug } from "./config.js";
 
